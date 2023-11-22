@@ -12,7 +12,7 @@
 // copied from https://github.com/adobe/express-website/tree/main/tools/fgrep-attr
 
 const gitowner = 'hlxsites';
-const gitrepo = 'vg-macktrucks-com-ca';
+const gitrepo = 'vg-macktrucks-ca';
 const globalSitemapURL = '/sitemap.xml';
 
 let sitemapURLs = [];

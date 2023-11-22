@@ -2,8 +2,8 @@
 Franklin site redesign for macktrucks.ca
 
 ## Environments
-- Preview: https://main--vg-macktrucks-com-ca--hlxsites.hlx.page/
-- Live: https://main--vg-macktrucks-com-ca--hlxsites.hlx.live/
+- Preview: https://main--vg-macktrucks-ca--hlxsites.hlx.page/
+- Live: https://main--vg-macktrucks-ca--hlxsites.hlx.live/
 
 ## Installation
 
