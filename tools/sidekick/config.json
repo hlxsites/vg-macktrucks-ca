@@ -1,5 +1,6 @@
 {
   "project": "Mack Trucks",
+  "host": "www.macktrucks.ca",
   "plugins": [
     {
       "id": "library",
