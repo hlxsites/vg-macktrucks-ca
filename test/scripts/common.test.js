@@ -130,20 +130,20 @@ describe('slugify', () => {
   });
 });
 
-describe('checkOneTrustGroup', () => {
+describe('checkOneTruckGroup', () => {
   it('should return true when the group is present with value 1', () => {
     // Simulate a cookie with the group 'group1' set to 1
     document.cookie = 'OptanonConsent=group1:1;';
 
-    const result = commonScript.checkOneTrustGroup('group1');
+    const result = commonScript.checkOneTruckGroup('group1');
     expect(result).to.be.true;
   });
 
   it('should return false when the group is present with a value other than 1', () => {
     // Simulate a cookie with the group 'group2' set to 0 (or any value other than 1)
-    document.cookie = 'OptanonConsent=C0002:0;';
+    document.cookie = 'OptanonConsent=group2:0;';
 
-    const result = commonScript.checkOneTrustGroup('C0002');
+    const result = commonScript.checkOneTruckGroup('group2');
     expect(result).to.be.false;
   });
 
@@ -151,7 +151,7 @@ describe('checkOneTrustGroup', () => {
     // Simulate an empty cookie
     document.cookie = '';
 
-    const result = commonScript.checkOneTrustGroup('C0003');
+    const result = commonScript.checkOneTruckGroup('group3');
     expect(result).to.be.false;
   });
 
@@ -159,7 +159,7 @@ describe('checkOneTrustGroup', () => {
     // Simulate a cookie with a URL-encoded group name
     document.cookie = 'OptanonConsent=group%204:1;';
 
-    const result = commonScript.checkOneTrustGroup('group 4');
+    const result = commonScript.checkOneTruckGroup('group 4');
     expect(result).to.be.true;
   });
 });
