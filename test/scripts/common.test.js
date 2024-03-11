@@ -141,9 +141,9 @@ describe('checkOneTrustGroup', () => {
 
   it('should return false when the group is present with a value other than 1', () => {
     // Simulate a cookie with the group 'group2' set to 0 (or any value other than 1)
-    document.cookie = 'OptanonConsent=group2:0;';
+    document.cookie = 'OptanonConsent=C0002:0;';
 
-    const result = commonScript.checkOneTrustGroup('group2');
+    const result = commonScript.checkOneTrustGroup('C0002');
     expect(result).to.be.false;
   });
 
@@ -151,7 +151,7 @@ describe('checkOneTrustGroup', () => {
     // Simulate an empty cookie
     document.cookie = '';
 
-    const result = commonScript.checkOneTrustGroup('group3');
+    const result = commonScript.checkOneTrustGroup('C0003');
     expect(result).to.be.false;
   });
 
