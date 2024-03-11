@@ -6,7 +6,9 @@ import {
   loadHeader,
   loadFooter,
 } from './lib-franklin.js';
+import { COOKIE_VALUES, COOKIE_CHECK } from './constants.js';
 
+const { performance, targeting, social } = COOKIE_VALUES;
 let placeholders = null;
 
 export async function getPlaceholders() {
@@ -183,11 +185,19 @@ export const slugify = (text) => (
  */
 export function checkOneTruckGroup(groupName) {
   const oneTrustCookie = decodeURIComponent(document.cookie.split(';').find((cookie) => cookie.trim().startsWith('OptanonConsent=')));
-  return oneTrustCookie.includes(`${groupName}:1`);
+  return COOKIE_CHECK || oneTrustCookie.includes(`${groupName}:1`);
 }
 
-export function isEloquaFormAllowed() {
-  return checkOneTruckGroup('C0004');
+export function isPerformanceAllowed() {
+  return checkOneTrustGroup(performance);
+}
+
+export function isTargetingAllowed() {
+  return checkOneTrustGroup(targeting);
+}
+
+export function isSocialAllowed() {
+  return checkOneTrustGroup(social);
 }
 
 /**
