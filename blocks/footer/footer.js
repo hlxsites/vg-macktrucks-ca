@@ -1,6 +1,6 @@
 import { readBlockConfig, decorateIcons, loadBlocks } from '../../scripts/lib-franklin.js';
 import {
-  createElement, getTextLabel, isEloquaFormAllowed,
+  createElement, getTextLabel, isTargetingAllowed,
 } from '../../scripts/common.js';
 
 const PLACEHOLDERS = {
@@ -187,7 +187,7 @@ export default async function decorate(block) {
   await loadBlocks(block);
 
   const onFormLoaded = (mutationList) => {
-    if (!isEloquaFormAllowed()) {
+    if (!isTargetingAllowed()) {
       return;
     }
 
@@ -243,12 +243,14 @@ export default async function decorate(block) {
   };
 
   const eloquaForm = block.querySelector('.eloqua-form');
-  observer = new MutationObserver(onFormLoaded);
-  observer.observe(eloquaForm, {
-    childList: true,
-    attributes: false,
-    subtree: true,
-  });
+  if (eloquaForm) {
+    observer = new MutationObserver(onFormLoaded);
+    observer.observe(eloquaForm, {
+      childList: true,
+      attributes: false,
+      subtree: true,
+    });
+  }
 
   block.addEventListener('click', (e) => {
     if (e.target.classList.contains(`${blockNameTruckList}__title`)) {
